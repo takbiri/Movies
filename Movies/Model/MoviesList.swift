@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Movie {
+    let title: String
+    let poster: String
+}

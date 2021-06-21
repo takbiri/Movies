@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import SVProgressHUD
+import TMDBSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        TMDBConfig.apikey = Utilities.movieDBApiKey
+        SVProgressHUD.setDefaultMaskType(.clear)
         
         return true
     }
