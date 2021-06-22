@@ -20,7 +20,7 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         updateUI()
     }
-    
+
     func updateUI(){
         
         SVProgressHUD.show()
@@ -28,18 +28,31 @@ class MoviesViewController: UIViewController {
         moviesViewModel.delegate = self
         moviesViewModel.fetchMovies()
         
+        updateCollectionView()
+    }
+    
+    func updateCollectionView(){
+        
+        var columns:CGFloat = 2
+        let device = UIDevice.current.userInterfaceIdiom
+        
+        if device == .pad {
+            columns = 4
+        }else if device == .phone{
+            columns = 2
+        }
+        
         // Configure collection's cell with custom size
-        let width = (collectionView.frame.size.width / 2) - 40
+        let width = (self.view.frame.size.width / columns) - 40
         let height = width * 1.5
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: width, height: height)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 20
-        
+
         collectionView.register(UINib(nibName: "MoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 14, bottom: 15, right: 14)
-
     }
 }
 
