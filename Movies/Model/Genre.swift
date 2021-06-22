@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Genres {
-    let genre: [Genre]
-}
+//struct Genres {
+//    let genre: [Genre]
+//}
 
 struct Genre {
     let name: String

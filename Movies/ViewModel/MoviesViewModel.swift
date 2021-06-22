@@ -15,12 +15,12 @@ class MoviesViewModel {
     
     var genreID: Int!
     var delegate: MoviesViewModelDelegate?
-    
+    var page:Double = 1
     
     func fetchMovies(){
         
-        DiscoverMovieMDB.genreList(genreId: 12, page: 1) { apiReturn, returnedMovies in
-            
+        DiscoverMovieMDB.genreList(genreId: genreID, page: page) { apiReturn, returnedMovies in
+            print("page number :\(self.page)")
             var movies:[Movie] = []
             
             returnedMovies?.forEach({ movie in
@@ -28,6 +28,7 @@ class MoviesViewModel {
             })
             
             self.delegate?.didFinishFetchMovies(movies: movies)
+            self.page += 1
             
         }
     }

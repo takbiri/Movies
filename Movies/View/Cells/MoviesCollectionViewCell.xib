@@ -17,37 +17,55 @@
                 <rect key="frame" x="0.0" y="0.0" width="247" height="376"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-dZ-t0O">
-                        <rect key="frame" x="0.0" y="0.0" width="247" height="314"/>
-                    </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCe-Gr-QXj">
-                        <rect key="frame" x="0.0" y="314" width="247" height="62"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVR-f2-sek">
+                        <rect key="frame" x="0.0" y="0.0" width="247" height="376"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wonder Woman 1984" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03u-pE-1E2">
-                                <rect key="frame" x="8" y="18" width="231" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-dZ-t0O">
+                                <rect key="frame" x="0.0" y="0.0" width="247" height="331"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCe-Gr-QXj">
+                                <rect key="frame" x="0.0" y="331" width="247" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wonder Woman 1984" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03u-pE-1E2">
+                                        <rect key="frame" x="8" y="9" width="231" height="27"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="03u-pE-1E2" secondAttribute="bottom" constant="9" id="QF8-fC-DOf"/>
+                                    <constraint firstItem="03u-pE-1E2" firstAttribute="leading" secondItem="gCe-Gr-QXj" secondAttribute="leading" constant="8" id="aeS-6z-wWb"/>
+                                    <constraint firstItem="03u-pE-1E2" firstAttribute="top" secondItem="gCe-Gr-QXj" secondAttribute="top" constant="9" id="dz3-xf-UDB"/>
+                                    <constraint firstAttribute="trailing" secondItem="03u-pE-1E2" secondAttribute="trailing" constant="8" id="oz8-uU-bwG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hF0-dZ-t0O" secondAttribute="trailing" id="DaG-Kp-sM9"/>
+                            <constraint firstItem="hF0-dZ-t0O" firstAttribute="top" secondItem="rVR-f2-sek" secondAttribute="top" id="EW9-ff-OzF"/>
+                            <constraint firstItem="gCe-Gr-QXj" firstAttribute="leading" secondItem="rVR-f2-sek" secondAttribute="leading" id="FPh-8Q-fwa"/>
+                            <constraint firstAttribute="bottom" secondItem="hF0-dZ-t0O" secondAttribute="bottom" constant="45" id="IvQ-ZO-eqX"/>
+                            <constraint firstItem="hF0-dZ-t0O" firstAttribute="leading" secondItem="rVR-f2-sek" secondAttribute="leading" id="Keg-6l-QVH"/>
+                            <constraint firstAttribute="trailing" secondItem="gCe-Gr-QXj" secondAttribute="trailing" id="StZ-LJ-xHQ"/>
+                            <constraint firstItem="gCe-Gr-QXj" firstAttribute="top" secondItem="hF0-dZ-t0O" secondAttribute="bottom" id="Vwe-MO-BKO"/>
+                            <constraint firstAttribute="bottom" secondItem="gCe-Gr-QXj" secondAttribute="bottom" id="avx-km-GXH"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="gCe-Gr-QXj" secondAttribute="trailing" id="5ug-MV-jzI"/>
-                <constraint firstItem="gCe-Gr-QXj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9ZY-wT-141"/>
-                <constraint firstAttribute="trailing" secondItem="hF0-dZ-t0O" secondAttribute="trailing" id="BzN-zZ-r23"/>
-                <constraint firstItem="gCe-Gr-QXj" firstAttribute="top" secondItem="hF0-dZ-t0O" secondAttribute="bottom" id="ENs-OG-9nR"/>
-                <constraint firstAttribute="bottom" secondItem="gCe-Gr-QXj" secondAttribute="bottom" id="Pbx-DU-nGu"/>
-                <constraint firstAttribute="bottom" secondItem="hF0-dZ-t0O" secondAttribute="bottom" constant="62" id="Sy3-fu-Hbr"/>
-                <constraint firstItem="hF0-dZ-t0O" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iJx-dO-2h4"/>
-                <constraint firstItem="hF0-dZ-t0O" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ssA-UL-g4i"/>
+                <constraint firstAttribute="bottom" secondItem="rVR-f2-sek" secondAttribute="bottom" id="5xg-eM-MMW"/>
+                <constraint firstItem="rVR-f2-sek" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cd3-5n-qtW"/>
+                <constraint firstAttribute="trailing" secondItem="rVR-f2-sek" secondAttribute="trailing" id="fT5-Au-QRc"/>
+                <constraint firstItem="rVR-f2-sek" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ovA-nS-d8T"/>
             </constraints>
             <size key="customSize" width="247" height="376"/>
             <connections>
+                <outlet property="backView" destination="rVR-f2-sek" id="ABy-tP-Nte"/>
                 <outlet property="movieNameLabel" destination="03u-pE-1E2" id="caV-uX-ekA"/>
                 <outlet property="posterImageView" destination="hF0-dZ-t0O" id="u7S-I2-HO9"/>
             </connections>

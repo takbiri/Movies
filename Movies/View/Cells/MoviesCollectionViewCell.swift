@@ -9,12 +9,14 @@ import UIKit
 
 class MoviesCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        self.backView.layer.cornerRadius = 10
+        self.backView.layer.masksToBounds = true
     }
 
 }

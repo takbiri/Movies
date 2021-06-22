@@ -24,11 +24,22 @@ class MoviesViewController: UIViewController {
     func updateUI(){
         
         SVProgressHUD.show()
-        
+                
         moviesViewModel.delegate = self
         moviesViewModel.fetchMovies()
         
-        collectionView.register(MoviesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        // Configure collection's cell with custom size
+        let width = (collectionView.frame.size.width / 2) - 40
+        let height = width * 1.5
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: width, height: height)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 20
+        
+        collectionView.register(UINib(nibName: "MoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        collectionView.contentInset = UIEdgeInsets(top: 15, left: 14, bottom: 15, right: 14)
+
     }
 }
 
@@ -37,9 +48,19 @@ extension MoviesViewController: MoviesViewModelDelegate, UICollectionViewDelegat
     func didFinishFetchMovies(movies: [Movie]) {
         SVProgressHUD.dismiss()
         
-        self.movies = movies
+        if movies.count != 0 {
+            let currentCount = self.movies.count
+
+            self.movies.append(contentsOf: movies)
+            
+            var indexPaths:[IndexPath] = []
+            for i in 0 ..< movies.count {
+                indexPaths.append(IndexPath(row: currentCount + i, section: 0))
+            }
+            self.collectionView.insertItems(at: indexPaths)
+
+        }
         
-        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -50,7 +71,7 @@ extension MoviesViewController: MoviesViewModelDelegate, UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MoviesCollectionViewCell
         
         cell.movieNameLabel.text = self.movies[indexPath.row].title
-
+        
         guard let imageURL = URL(string: Utilities.postersBaseURL + self.movies[indexPath.row].poster) else {
             cell.posterImageView.image = UIImage(named: "not-found")
             return cell
@@ -58,5 +79,11 @@ extension MoviesViewController: MoviesViewModelDelegate, UICollectionViewDelegat
         
         cell.posterImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "loading"))
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == self.movies.count - 2 {
+            moviesViewModel.fetchMovies()
+        }
     }
 }

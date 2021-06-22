@@ -9,7 +9,7 @@ import UIKit
 import SVProgressHUD
 
 class GenresViewController: UIViewController {
-
+    
     var genresViewModel = GenresViewModel()
     var genres:[Genre] = []
     
@@ -27,6 +27,7 @@ class GenresViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
+    
 }
 
 extension GenresViewController: GenresViewModelDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -44,6 +45,8 @@ extension GenresViewController: GenresViewModelDelegate, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.backgroundColor = .clear
+        cell.textLabel?.textColor = .white
         cell.textLabel?.text = genres[indexPath.row].name
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
@@ -56,13 +59,17 @@ extension GenresViewController: GenresViewModelDelegate, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showMovies", sender: self.genres[indexPath.row].id)
+        self.performSegue(withIdentifier: "showMovies", sender: self.genres[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMovies" {
+            
+            let genre = sender as! Genre
             let vc = segue.destination as! MoviesViewController
-            vc.moviesViewModel.genreID = sender as? Int
+            vc.moviesViewModel.genreID = genre.id
+            vc.navigationItem.title = genre.name
+            
         }
     }
 }
