@@ -46,8 +46,10 @@ extension GenresViewController: GenresViewModelDelegate, UITableViewDelegate, UI
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.backgroundColor = .clear
+        
         cell.textLabel?.textColor = .white
         cell.textLabel?.text = genres[indexPath.row].name
+        
         cell.selectionStyle = .none
         cell.accessoryType = .disclosureIndicator
         

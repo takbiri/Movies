@@ -61,6 +61,7 @@ extension MoviesViewController: MoviesViewModelDelegate, UICollectionViewDelegat
     func didFinishFetchMovies(movies: [Movie]) {
         SVProgressHUD.dismiss()
         
+        // Update the collection view with the new datas in the next pages.
         if movies.count != 0 {
             let currentCount = self.movies.count
 

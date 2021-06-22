@@ -11,6 +11,7 @@ import TMDBSwift
 protocol MoviesViewModelDelegate {
     func didFinishFetchMovies(movies: [Movie])
 }
+
 class MoviesViewModel {
     
     var genreID: Int!
