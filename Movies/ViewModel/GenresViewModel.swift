@@ -8,13 +8,13 @@
 import Foundation
 import TMDBSwift
 
-protocol GenresViewModelDelegate {
+protocol GenresViewModelDelegate: AnyObject {
     func didFinishFetchGenres(genres: [Genre])
 }
 
 class GenresViewModel {
     
-    var delegate: GenresViewModelDelegate?
+    weak var delegate: GenresViewModelDelegate?
     var genresCoreData = GenresCoreData()
     
     func fetchGenres(){

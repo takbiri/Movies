@@ -8,14 +8,14 @@
 import Foundation
 import TMDBSwift
 
-protocol MoviesViewModelDelegate {
+protocol MoviesViewModelDelegate: AnyObject {
     func didFinishFetchMovies(movies: [Movie])
 }
 
 class MoviesViewModel {
     
+    weak var delegate: MoviesViewModelDelegate?
     var genreID: Int!
-    var delegate: MoviesViewModelDelegate?
     var page:Double = 1
     
     func fetchMovies(){
